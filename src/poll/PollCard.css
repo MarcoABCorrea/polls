@@ -1,0 +1,7 @@
+.divider {
+  margin-top: 0.5em;
+}
+
+.ui.labeled.button > .label {
+  color: #969393;
+}

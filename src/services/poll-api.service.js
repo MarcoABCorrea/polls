@@ -20,7 +20,22 @@ const request = (options) => {
 
 export function getPollPage(page) {
   return request({
-    url: API_BASE_URL + 'questions?page=' + page,
+    url: API_BASE_URL + '/questions?page=' + page,
     method: 'GET',
+  });
+}
+
+export function getPollResult(questionId) {
+  return request({
+    url: API_BASE_URL + '/questions/' + questionId,
+    method: 'GET',
+  });
+}
+
+export function sendVote(vote) {
+  return request({
+    url: API_BASE_URL + vote,
+    method: 'POST',
+    body: JSON.stringify(vote),
   });
 }

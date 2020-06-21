@@ -9,44 +9,21 @@ class PollList extends Component {
     super(props);
     this.state = {
       polls: [],
-      page: 0,
-      size: 10,
-      totalElements: 0,
-      totalPages: 0,
-      last: true,
-      currentVotes: [],
-      isLoading: false,
     };
-    this.loadPollList = this.loadPollList.bind(this);
-
-    this.polls = [];
-    for (let i = 0; i < 10; i++) {
-      this.polls.push(<PollCard key={i} />);
-    }
   }
 
   loadPollList(page = 1) {
-    let promise;
-
-    promise = getPollPage(page);
-
-    if (!promise) {
-      return;
-    }
-
-    this.setState({
-      isLoading: true,
-    });
-
-    promise
-      .then((response) => {
-        console.log('res', response);
-      })
-      .catch((error) => {
-        this.setState({
-          isLoading: false,
-        });
+    const promise = getPollPage(page);
+    promise.then((response) => {
+      let polls = [];
+      response.forEach((poll, i) => {
+        polls.push(<PollCard key={i} {...poll} />);
       });
+
+      this.setState({
+        polls,
+      });
+    });
   }
 
   componentDidMount() {
@@ -57,7 +34,7 @@ class PollList extends Component {
     return (
       <div className='polls-list'>
         <h1>Questions</h1>
-        <div className='ui cards'>{this.polls}</div>
+        <div className='ui cards'>{this.state.polls}</div>
       </div>
     );
   }

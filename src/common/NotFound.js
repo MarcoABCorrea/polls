@@ -9,7 +9,7 @@ class NotFound extends Component {
         <h1 className='title'>404</h1>
         <div className='desc'>The Page you're looking for was not found.</div>
         <Link to='/'>
-          <button className='ui primary button'>Go Back</button>
+          <button className='ui negative button'>Go Back</button>
         </Link>
       </div>
     );

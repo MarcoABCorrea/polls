@@ -5,3 +5,7 @@
 .polls-list h1 {
   color: #696868;
 }
+
+.ui.cards .card {
+  width: 50%;
+}

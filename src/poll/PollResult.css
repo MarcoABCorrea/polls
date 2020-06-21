@@ -1,0 +1,11 @@
+.poll-result {
+  margin-left: 5em;
+}
+
+.poll-result h1 {
+  color: #696868;
+}
+
+#poll-result {
+  width: 50%;
+}

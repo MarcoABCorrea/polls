@@ -1,9 +1,9 @@
 .app-header {
   position: fixed;
   width: 100%;
-  box-shadow: 0 2px 8px #033316;
+  box-shadow: 0 2px 8px #330303;
   z-index: 10;
-  background: #00b894;
+  background: #b63f3f;
   padding: 2px 15px;
 }
 

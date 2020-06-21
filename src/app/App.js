@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom';
 import AppHeader from '../common/AppHeader';
 import NotFound from '../common/NotFound';
-import PollList from '../poll/PollsList';
+import PollList from '../poll/PollList';
 import './App.css';
 
 class App extends Component {

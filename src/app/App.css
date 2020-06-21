@@ -1,3 +1,5 @@
 .app-content {
-  margin-top: 64px;   
+  padding-top: 5em;
+  background: #b0e8ff;
+  min-height: 100vh;
 }

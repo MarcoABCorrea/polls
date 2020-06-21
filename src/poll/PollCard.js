@@ -16,10 +16,10 @@ class PollCard extends Component {
         { id: 2, name: 'op2' },
       ],
       votes: 1200,
-      route: '/a',
+      route: '/poll/1',
     };
 
-    this.state.choices.map((choice) => {
+    this.state.choices.forEach((choice) => {
       this.choices.push(
         <button key={choice.id} className='ui blue basic button'>
           {choice.name}

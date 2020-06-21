@@ -39,3 +39,11 @@ export function sendVote(vote) {
     body: JSON.stringify(vote),
   });
 }
+
+export function createPoll(poll) {
+  return request({
+    url: API_BASE_URL + '/questions',
+    method: 'POST',
+    body: JSON.stringify(poll),
+  });
+}

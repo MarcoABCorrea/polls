@@ -20,9 +20,7 @@ class PollList extends Component {
         polls.push(<PollCard key={i} {...poll} />);
       });
 
-      this.setState({
-        polls,
-      });
+      this.setState({ polls });
     });
   }
 

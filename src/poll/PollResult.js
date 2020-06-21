@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { getPollResult } from '../services/poll-api.service';
 import './PollResult.css';
 
@@ -11,20 +11,24 @@ class PollResult extends Component {
 
   loadPollResult() {
     const promise = getPollResult(this.state.questionId);
-    promise.then((response) => {
-      let rows = [];
-      response.choices.forEach((choice, i) => {
-        rows.push(this.tableRow(choice, i));
-      });
+    promise
+      .then((response) => {
+        let rows = [];
+        response.choices.forEach((choice, i) => {
+          rows.push(this.tableRow(choice, i));
+        });
 
-      this.setState({
-        rows,
+        this.setState({
+          rows,
+        });
+      })
+      .catch(() => {
+        this.setState({ invalidQuestionId: true });
       });
-    });
   }
 
   componentDidMount() {
-    if (parseInt(this.state.questionId) !== NaN) {
+    if (!isNaN(this.state.questionId)) {
       this.loadPollResult();
     } else {
       this.setState({ invalidQuestionId: true });
@@ -42,7 +46,13 @@ class PollResult extends Component {
 
   render() {
     if (this.state.invalidQuestionId) {
-      return <div>Question Id provided is invalid!</div>;
+      return (
+        <div className='ui form error poll-error'>
+          <div className='ui error message'>
+            <div className='header'>Question Id provided is invalid!</div>
+          </div>
+        </div>
+      );
     }
 
     return (
@@ -57,6 +67,10 @@ class PollResult extends Component {
           </thead>
           <tbody>{this.state.rows}</tbody>
         </table>
+
+        <Link to='/'>
+          <button className='ui negative button'>Go Back</button>
+        </Link>
       </div>
     );
   }

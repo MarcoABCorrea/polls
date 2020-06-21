@@ -1,0 +1,25 @@
+.new-poll-container {
+  padding: 5em;
+}
+
+#submit-new-poll {
+  margin-top: 2em;
+}
+
+#new-option-container {
+  display: flex;
+}
+
+.option-input-container {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+}
+
+#new-option-container input {
+  margin: 0 auto 1em 0;
+}
+
+#new-option-poll {
+  margin: 0 0 auto auto;
+}

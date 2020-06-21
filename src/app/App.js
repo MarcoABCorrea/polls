@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom';
 import AppHeader from '../common/AppHeader';
 import NotFound from '../common/NotFound';
+import NewPoll from '../poll/NewPoll';
 import PollList from '../poll/PollList';
 import PollResult from '../poll/PollResult';
 import './App.css';
@@ -16,6 +17,7 @@ class App extends Component {
           <div className='container'>
             <Switch>
               <Route exact path='/' render={() => <PollList />}></Route>
+              <Route exact path='/new' render={() => <NewPoll />}></Route>
               <Route
                 exact
                 path='/results/:questionId'

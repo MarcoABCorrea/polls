@@ -9,3 +9,7 @@
 #poll-result {
   width: 50%;
 }
+
+.poll-error {
+  padding: 5em;
+}
